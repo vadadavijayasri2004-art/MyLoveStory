@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Story ❤️</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    background:linear-gradient(180deg,#080816,#151530);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+}
+
+/* Floating Hearts */
+.heart{
+    position:absolute;
+    color:#ff5c8a;
+    font-size:20px;
+    animation:float 8s linear infinite;
+    opacity:0.7;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:0;
+    }
+    to{
+        transform:translateY(-100vh);
+        opacity:1;
+    }
+}
+
+.container{
+    text-align:center;
+    color:white;
+    width:80%;
+    max-width:700px;
+}
+
+#story{
+    font-size:28px;
+    line-height:1.8;
+    min-height:250px;
+}
+
+.nextBtn{
+    margin-top:20px;
+    padding:12px 30px;
+    border:none;
+    border-radius:30px;
+    background:#ff4d6d;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    opacity:0;
+    transition:0.5s;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div id="story"></div>
+    <button class="nextBtn" id="nextBtn">Next ❤️</button>
+</div>
+
+<script>
+
+// Floating Hearts
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.className="heart";
+    heart.innerHTML="❤️";
+
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(5+Math.random()*5)+"s";
+    heart.style.fontSize=(15+Math.random()*20)+"px";
+
+    document.body.appendChild(heart);
+}
+
+// Typewriter Text
+const text = `There is something I've wanted to tell you...
+
+Not in a text message.
+Not in a call.
+
+But in a way that lasts forever. ❤️
+
+So here begins our little story...`;
+
+let i = 0;
+
+function typing(){
+    if(i < text.length){
+        document.getElementById("story").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typing,60);
+    }else{
+        document.getElementById("nextBtn").style.opacity="1";
+    }
+}
+
+typing();
+
+document.getElementById("nextBtn").addEventListener("click",()=>{
+    window.location.href="scene3.html";
+});
+</script>
+
+</body>
+</html>

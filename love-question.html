@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>One Last Question ❤️</title>
+
+<style>
+
+body{
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    background:linear-gradient(to bottom,#ffdde1,#ee9ca7);
+    font-family:Arial,sans-serif;
+    overflow:hidden;
+}
+
+h1{
+    font-size:50px;
+    color:white;
+    text-shadow:2px 2px 10px rgba(0,0,0,0.2);
+}
+
+.buttons{
+    margin-top:30px;
+}
+
+button{
+    padding:12px 30px;
+    font-size:20px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    margin:10px;
+}
+
+#yes{
+    background:#ff4d6d;
+    color:white;
+}
+
+#no{
+    background:white;
+    color:#ff4d6d;
+    position:absolute;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Do You Love Me? ❤️</h1>
+
+<div class="buttons">
+    <button id="yes">Yes ❤️</button>
+    <button id="no">No 😜</button>
+</div>
+
+<script>
+
+const noBtn = document.getElementById("no");
+
+noBtn.addEventListener("mouseover", () => {
+
+    noBtn.style.left =
+    Math.random() * (window.innerWidth - 100) + "px";
+
+    noBtn.style.top =
+    Math.random() * (window.innerHeight - 50) + "px";
+
+});
+
+document.getElementById("yes")
+.addEventListener("click", () => {
+
+    document.body.innerHTML = `
+    <h1 style="color:white;text-align:center;">
+    Yayyyy! ❤️<br><br>
+    Thank You For Being In My Life ❤️✨
+    </h1>
+    `;
+
+});
+
+</script>
+
+</body>
+</html>

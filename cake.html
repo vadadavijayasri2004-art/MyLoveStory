@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Special Surprise ❤️</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+height:100vh;
+overflow:hidden;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(to bottom,#1b1035,#ffb6c1);
+}
+
+.container{
+text-align:center;
+color:white;
+position:relative;
+z-index:2;
+}
+
+h1{
+margin-bottom:20px;
+text-shadow:0 0 20px pink;
+}
+
+/* CAKE */
+
+.cake{
+position:relative;
+width:300px;
+margin:auto;
+}
+
+.candles{
+display:flex;
+justify-content:center;
+gap:15px;
+margin-bottom:10px;
+}
+
+.candle{
+width:12px;
+height:40px;
+background:white;
+position:relative;
+border-radius:3px;
+}
+
+.candle::before{
+content:"";
+position:absolute;
+width:12px;
+height:18px;
+background:orange;
+border-radius:50%;
+top:-18px;
+left:0;
+box-shadow:0 0 20px gold;
+animation:flicker .5s infinite alternate;
+}
+
+@keyframes flicker{
+from{opacity:1;}
+to{opacity:.5;}
+}
+
+.top-layer{
+width:200px;
+height:70px;
+background:#fff0f5;
+border-radius:15px;
+margin:auto;
+}
+
+.middle-layer{
+width:240px;
+height:80px;
+background:#ffe4e1;
+border-radius:15px;
+margin:auto;
+margin-top:-10px;
+}
+
+.bottom-layer{
+width:280px;
+height:90px;
+background:white;
+border-radius:15px;
+margin:auto;
+margin-top:-10px;
+}
+
+/* CAKE SLICE */
+
+#slice{
+display:none;
+font-size:90px;
+margin-top:25px;
+animation:slideCake 2s forwards;
+}
+
+@keyframes slideCake{
+from{
+transform:translateX(0);
+}
+to{
+transform:translateX(180px);
+}
+}
+
+/* ENVELOPE */
+
+#envelope{
+display:none;
+width:180px;
+height:120px;
+background:#ff9db5;
+margin:30px auto;
+position:relative;
+cursor:pointer;
+}
+
+.flap{
+width:0;
+height:0;
+border-left:90px solid transparent;
+border-right:90px solid transparent;
+border-top:70px solid #ff7ea0;
+position:absolute;
+top:0;
+transform-origin:top;
+transition:1s;
+}
+
+.open .flap{
+transform:rotateX(180deg);
+}
+
+.letter-icon{
+font-size:55px;
+padding-top:30px;
+}
+
+/* LETTER */
+
+#message{
+display:none;
+background:white;
+color:#444;
+width:350px;
+padding:25px;
+border-radius:20px;
+box-shadow:0 0 25px rgba(0,0,0,.3);
+animation:showLetter 1s;
+margin:auto;
+}
+
+@keyframes showLetter{
+from{
+transform:scale(0);
+}
+to{
+transform:scale(1);
+}
+}
+
+/* HEARTS */
+
+.heart{
+position:absolute;
+color:white;
+animation:float linear infinite;
+pointer-events:none;
+}
+
+@keyframes float{
+from{
+transform:translateY(100vh);
+opacity:0;
+}
+to{
+transform:translateY(-120vh);
+opacity:1;
+}
+}
+.btn{
+margin-top:20px;
+padding:15px 35px;
+font-size:18px;
+border:none;
+border-radius:50px;
+background:linear-gradient(45deg,#ff4d6d,#ff85a2);
+color:white;
+cursor:pointer;
+box-shadow:0 0 20px pink;
+transition:.3s;
+}
+
+.btn:hover{
+transform:scale(1.1);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 id="title">Blow The Candles ❤️ pls wait few seconds,my lv❤️❤️</h1>
+
+<div class="cake">
+
+<div class="candles" id="candles">
+<div class="candle"></div>
+<div class="candle"></div>
+<div class="candle"></div>
+<div class="candle"></div>
+<div class="candle"></div>
+</div>
+
+<div class="top-layer"></div>
+<div class="middle-layer"></div>
+<div class="bottom-layer"></div>
+
+</div>
+
+<div id="slice">🍰</div>
+
+<div id="envelope">
+
+<div class="flap"></div>
+
+<div class="letter-icon">💌</div>
+
+</div>
+
+<div id="message">
+
+<h2>For You ❤️</h2>
+
+<br>
+
+<p>
+Thank you for being part of my story.
+<br><br>
+From the first day we met...
+<br>
+to every smile...
+<br>
+to every memory...
+<br><br>
+You made ordinary moments feel magical.
+<br><br>
+Thank You For Being In My Life ❤️
+</p>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* Floating Hearts */
+
+for(let i=0;i<80;i++){
+
+let heart=document.createElement("div");
+
+heart.className="heart";
+
+heart.innerHTML="❤️";
+
+heart.style.left=Math.random()*100+"vw";
+
+heart.style.fontSize=
+(10+Math.random()*25)+"px";
+
+heart.style.animationDuration=
+(5+Math.random()*8)+"s";
+
+document.body.appendChild(heart);
+
+}
+
+/* After 5 seconds */
+
+setTimeout(()=>{
+
+document.getElementById("title")
+.innerHTML="Make A Wish ❤️";
+
+document.getElementById("candles")
+.style.opacity="0.2";
+
+/* Cake Slice */
+
+document.getElementById("slice")
+.style.display="block";
+
+/* Envelope */
+
+setTimeout(()=>{
+
+document.getElementById("envelope")
+.style.display="block";
+
+},2000);
+
+},5000);
+
+/* Open Letter */
+
+document.getElementById("envelope")
+.addEventListener("click",()=>{
+
+document.getElementById("envelope")
+.classList.add("open");
+
+setTimeout(()=>{
+
+document.getElementById("message")
+.style.display="block";
+
+},800);
+
+});
+
+</script>
+<button class="btn" onclick="location.href='love-question.html'">
+Last question❤️
+</button>
+
+</body>
+</html>
